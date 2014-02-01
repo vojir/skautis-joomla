@@ -120,9 +120,11 @@
       }else{
         $db->setQuery('SELECT id FROM #__users WHERE username='.$db->quote($skautisUserDetails->UserName).' LIMIT 1;');
         $usersRow=$db->loadObject();
-        $db->setQuery('INSERT INTO #__skautis_users (id,id_skautis_user,id_person)VALUES('.$db->quote($usersRow->id).','.$db->quote(@$skautisUserDetails->ID).','.$db->quote(@$skautisUserDetails->ID_Person).');');
-        $db->query();
-        return;
+        if ($usersRow&&(is_object($usersRow))){
+          $db->setQuery('INSERT INTO #__skautis_users (id,id_skautis_user,id_person)VALUES('.$db->quote($usersRow->id).','.$db->quote(@$skautisUserDetails->ID).','.$db->quote(@$skautisUserDetails->ID_Person).');');
+          $db->query();
+          return;
+        }
       }
       //--kontrola, jestli není uživatel v některé z tabulek (např. jen změna uživatelského jména
 
