@@ -37,6 +37,7 @@
             <folder>sql</folder>
             <filename>models/config.php</filename>
             <folder>language</folder>
+            <folder>views</folder>
         </files>
 
 
