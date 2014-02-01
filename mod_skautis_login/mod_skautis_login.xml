@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>mod_skautis_login</name>
+	<author>Stanislav Vojíř</author>
+	<creationDate>January 2013</creationDate>
+	<copyright>Copyright (C) 2013 Stanislav Vojíř. All rights reserved.</copyright>
+	<authorEmail>stanislav.vojir@gmail.com</authorEmail>
+	<authorUrl>www.golemsoftware.cz</authorUrl>
+	<version>2.5.0</version>
+	<description>MOD_SKAUTIS_LOGIN_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_skautis_login">mod_skautis_login.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>mod_skautis_login.xml</filename>
+	</files>
+  <media folder="media" destination="mod_skautis">
+      <file>media.css</file>
+  </media>
+	<languages>
+        <language tag="en-GB">lang/en-GB.mod_skautis_login.ini</language>
+        <language tag="en-GB">lang/en-GB.mod_skautis_login.sys.ini</language>
+        <language tag="cs-CZ">lang/cs-CZ.mod_skautis_login.ini</language>
+        <language tag="cs-CZ">lang/cs-CZ.mod_skautis_login.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="SKAUTIS_URL"
+					type="url"
+					label="MOD_SKAUTIS_LOGIN_FIELD_URL"
+                    default="http://is.skaut.cz" />
+
+                <field name="PHOTO_SIZE" type="list" default="size50" label="PHOTO_SIZE">
+                    <option value="hidden">hidden</option>
+                    <option value="size40">height 40px</option>
+                    <option value="size50">height 50px</option>
+                    <option value="size60">height 60px</option>
+                    <option value="size80">height 80px</option>
+                    <option value="size100">height 100px</option>
+                    <option value="size120">height 120px</option>
+                </field>
+                <field name="PHOTO_POSITION" type="list" default="photoRight" label="PHOTO_POSITION">
+                    <option value="photoTop">top</option>
+                    <option value="photoLeft">left</option>
+                    <option value="photoRight">right</option>
+                </field>
+
+                <field name="TEXT_ALIGN" type="list" default="right" label="TEXT_ALIGN">
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="center">center</option>
+                </field>
+                <field name="TEXT_ROWS" type="list" default="two" label="TEXT_ROWS">
+                    <option value="one">one row</option>
+                    <option value="two">two rows</option>
+                </field>
+            </fieldset>
+		</fields>
+	</config>
+  
+</extension>

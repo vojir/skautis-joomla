@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="VOJ_DETAILS">
+		<message>
+			<![CDATA[VOJ Details]]>
+		</message>
+	</layout>
+	
+	<state>
+		<name>VOJ_DETAILS</name>
+		<description>VOJ_DETAILS</description>
+	</state>
+	
+	<config>
+ 		<fields name="params">
+      <fieldset name="basic" label="View options">
+		  		<field name="idUnit"  type="text" default="{skautis unit ID}" label="ID_UNIT" description="ID_OF_UNIT_IN_SKAUTIS" required="true" />
+          <field name="idArticleTop" type="text" default=""
+                    label="TOP_ARTICLE_ID"
+                    description="TOP_ARTICLE_DESC"
+                />
+          <field name="idArticleBottom" type="text" default=""
+                    label="BOTTOM_ARTICLE_ID"
+                    description="BOTTOM_ARTICLE_DESC"
+                />                
+          <field name="showContacts" type="list" default="true" label="SHOW_UNIT_CONTACTS">
+      				<option value="true">YES</option>
+              <option value="false">NO</option>
+      		</field>
+          <field name="showFunctions" type="list" default="true" label="SHOW_UNIT_FUNCTIONS">
+      				<option value="true">YES</option>
+              <option value="false">NO</option>
+      		</field>
+          <field name="showAccounts" type="list" default="true" label="SHOW_UNIT_ACCOUNTS">
+      				<option value="true">YES</option>
+              <option value="false">NO</option>
+      		</field>
+          <field name="showUnitsTree" type="list" default="true" label="SHOW_UNITS_TREE">
+      				<option value="true">YES</option>
+              <option value="false">NO</option>
+      		</field>      
+ 			</fieldset>
+ 		</fields>
+ 	</config>
+ 	
+</metadata>

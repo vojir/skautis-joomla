@@ -1,0 +1,34 @@
+/* CSS Document */
+
+td.iconTd{
+  vertical-align: middle;
+  width: 20px;
+  text-align: center;
+}
+
+table.unitContactsTable td,table.leadersTable td,table.basicTable td,table.bankAccountsTable td{
+  padding: 5px 5px ;
+  /*border: none ;*/
+}
+
+table.basicTable td.labelTd{
+  width:200px;
+} 
+
+table.unitContactsTable td.noteTd{
+  width:600px;
+}
+table.leadersTable td.functionTd{
+  width:200px;
+}
+table.leadersTable td.personTd{
+  font-weight: bold;
+}
+table.bankAccountsTable td.nameTd{
+  width:170px;
+}
+
+td.noteTd{
+  color: gray;
+  font-style: italic;
+}

@@ -1,0 +1,64 @@
+/* CSS Document */
+div.skautisLoginDiv {
+    margin: 20px 5px 0 0;
+    position: relative;
+    overflow: auto;
+}
+
+div.skautisLoginDiv strong {
+    display: block;
+    padding: 3px 0px;
+}
+
+img.photoImg.size40{
+    height: 40px;
+}
+
+img.photoImg.size50{
+    height: 50px;
+}
+
+img.photoImg.size60{
+    height: 60px;
+}
+
+img.photoImg.size80{
+    height: 80px;
+}
+
+img.photoImg.size100{
+    height: 100px;
+}
+
+img.photoImg.size120{
+    height: 120px;
+}
+img.photoImg.hidden{
+    display: none;
+}
+
+div.skautisLoginDiv img.photoImg.photoLeft {
+    float: left;
+    margin-right: 10px;
+}
+
+div.skautisLoginDiv img.photoImg.photoRight {
+    float: right;
+    margin-left: 10px;
+}
+div.skautisLoginDiv img.photoImg.photoTop{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+div.skautisLoginDiv.left{
+    text-align: left;
+}
+div.skautisLoginDiv.center{
+    text-align: center;
+}
+div.skautisLoginDiv.right{
+    text-align: right;
+}
+
