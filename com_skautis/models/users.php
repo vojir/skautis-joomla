@@ -95,7 +95,6 @@
       require_once JPATH_ROOT.'/components/com_users/models/registration.php';
       $db=$this->getDBO();
       //require_once JPATH_ROOT.'/libraries/joomla/application/component/helper.php';
-      $usersModelRegistration = new UsersModelRegistration();
       jimport('joomla.mail.helper');
       jimport('joomla.user.helper');
       
@@ -139,17 +138,39 @@
           $email=$skautisPersonDetails->Email;
         }
       }
-      
-      $data = array( 'username' => $skautisUserDetails->UserName,
-                     'name' => $name,
-                     'email1' => $email,
-                     'password1' => $password, // First password field
-                     'password2' => $password, // Confirm password field
-                     'block' => 0,
-                     'sendEmail'=>0,
-                     'activation'=>0 );
-                     
-      $usersModelRegistration->register($data);
+
+      /* get the com_user params */
+      jimport('joomla.application.component.helper'); // include libraries/application/component/helper.php
+      $usersParams = JComponentHelper::getParams( 'com_users' ); // load the Params
+
+      // "generate" a new JUser Object
+      $user = JFactory::getUser(0); // it's important to set the "0" otherwise your admin user information will be loaded
+
+      $data = array(
+        'username' => $skautisUserDetails->UserName,
+        'name' => $name,
+        'email' => $email,
+        'password' => $password, // First password field
+        'password2' => $password, // Confirm password field
+        'block' => 0,
+        'sendEmail'=>0,
+        'activation'=>0
+      );
+
+      // get the default user group
+      $usertype = $usersParams->get('new_usertype');
+      $data['groups']=array();
+      $data['groups'][]=$usertype;
+
+      if (!$user->bind($data)) { // now bind the data to the JUser Object, if it not works....
+        JError::raiseWarning('', JText::_( $user->getError())); // ...raise an Warning
+        return false; // if you're in a method/function return false
+      }
+
+      if (!$user->save()) { // if the user is NOT saved...
+        JError::raiseWarning('', JText::_( $user->getError())); // ...raise an Warning
+        return false; // if you're in a method/function return false
+      }
       
       //zaregistrování doplňujících informací
       $db->setQuery('SELECT id FROM #__users WHERE username='.$db->quote($skautisUserDetails->UserName).' LIMIT 1;');
